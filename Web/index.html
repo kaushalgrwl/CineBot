@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Poca - Podcast &amp; Audio Template">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+
+
+
+    <!-- Favicon -->
+    <link rel="icon" href="./img/core-img/favicon.ico">
+
+    <!-- Core Stylesheet -->
+
+    <link rel="stylesheet" href="style.css">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+
+
+
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+         https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+    <script src="code.js"></script>
+<script type="text/javascript" src="/eel.js"></script>
+ <!-- Title -->
+    <title>CINE-BOT</title>
+</head>
+
+<body>
+<!-- Preloader -->
+<div id="preloader">
+    <div class="preloader-thumbnail">
+        <img src="./img/core-img/preloader.png" alt="">
+    </div>
+</div>
+
+<!-- ***** Header Area Start ***** -->
+<header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="pocaNav">
+
+                <!-- Logo -->
+
+                <h2 class="current-item"><span style="color: white">CINE-BOT</span></h2>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+
+                    <!-- Menu Close Button -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul id="nav">
+                            <li class="current-item"><a href="./index.html">Home</a></li>
+                            <li> <a href="#" onclick="document.getElementById('id01').style.display='block'">Login</a></li>
+                            <li class="current-item"><a href="#" onclick="document.getElementById('id02').style.display='block'">Signup</a></li>
+                            <!--                                <li><a href="#">Pages</a>-->
+                            <!--                                    <ul class="dropdown">-->
+                            <!--                                        <li><a href="./index.html">- Home</a></li>-->
+
+                            <!--                                        <li><a href="./about.html">- About Us</a></li>-->
+                            <!--                                        <li><a href="./contact.html">- Contact</a></li>-->
+                            <!--                                        -->
+                            <!--                                        <li><a href="#">- Dropdown</a>-->
+                            <!--                                            <ul class="dropdown">-->
+                            <!--                                                <li><a href="#">- Dropdown Item</a></li>-->
+                            <!--                                                <li><a href="#">- Dropdown Item</a>-->
+                            <!--                                                    <ul class="dropdown">-->
+                            <!--                                                        <li><a href="#">- Even Dropdown</a></li>-->
+                            <!--                                                        <li><a href="#">- Even Dropdown</a></li>-->
+                            <!--                                                        <li><a href="#">- Even Dropdown</a></li>-->
+                            <!--                                                        <li><a href="#">- Even Dropdown</a></li>-->
+                            <!--                                                    </ul>-->
+                            <!--                                                </li>-->
+                            <!--                                                <li><a href="#">- Dropdown Item</a></li>-->
+                            <!--                                                <li><a href="#">- Dropdown Item</a></li>-->
+                            <!--                                            </ul>-->
+                            <!--                                        </li>-->
+                            <!--                                    </ul>-->
+                            <!--                                </li>-->
+<!--                             <li><a href="signup.html">Sign-Up</a></li>-->
+<!--                             <li><a href="login.html">Sign-In</a></li>-->
+
+
+
+<div id="id01" class="modal">
+
+
+  <div class="login">
+            <div class="header_log">
+      <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+                <h1>Login</h1>
+
+            </div>
+            <div class="body_log">
+                <form action="#" class="form_log">
+                    <input type="text" name="" id="email" placeholder="Username">
+                    <input type="password" name="" id="password" placeholder="Password">
+                </form>
+            </div>
+            <div class="footer_log">
+                <button class="btn_log" onclick="signIn()">login</button><br>
+             <!--   <button class="btn_log" onclick="signUp()">Sign Up</button>-->
+
+                <button class="btn_log" onclick="googleSignIn()">Google Sign In</button>
+<!--                <button class="btn" onclick="signOut()">Sign out</button> <br>-->
+            </div>
+        </div>
+</div>
+<div id="id02" class="modal">
+
+
+  <div class="login">
+            <div class="header_log">
+      <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+                <h1>Register</h1>
+
+            </div>
+            <div class="body_log">
+                <form action="#" class="form_log">
+                    <input type="text" name="" id="email1" placeholder="Username">
+                    <input type="password" name="" id="password1" placeholder="Password">
+                    <input type="password" name="" id="password2" placeholder="Re EnterPassword">
+                </form>
+            </div>
+            <div class="footer_log">
+
+                <button class="btn_log" onclick="signUp()">Sign Up</button>
+
+
+<!--                <button class="btn" onclick="signOut()">Sign out</button> <br>-->
+            </div>
+        </div>
+</div>
+                            <script>
+                            var modal = document.getElementById('id01');
+                            var modal1 = document.getElementById('id02');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+}
+  </script>
+
+                            <li><a href="./index.html">About</a></li>
+                            <li><a href="./index.html">Contact</a></li>
+
+                        </ul>
+
+
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<!-- ***** Welcome Area Start *****
+<section class="welcome-area">
+     Welcome Slides
+    <div class="welcome-slides owl-carousel">-->
+
+<!-- Single Welcome Slide -->
+<div class="welcome-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/1.jpg);">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center">
+            <div class="col-12">
+                <!-- Welcome Text -->
+                <div class="welcome-text">
+                    <h2 data-animation="fadeInUp" data-delay="100ms">MOVIES ON THE GO</h2>
+                    <div class="welcome-btn-group">
+                        <!--                                <a href="#" class="btn poca-btn m-2 ml-0 active" data-animation="fadeInUp"-->
+                        <!--                                   data-delay="500ms" name="mode" onclick="setmod(this)" value="1"> Random mode</a>-->
+                        <!--                                -->
+                        <!--                                <a href="#" class="btn poca-btn btn-2 m-2" data-animation="fadeInUp" data-delay="700ms"-->
+                        <!--                                   name="mode" onclick="setmod(this)" value="2">Emotion mode</a>-->
+                        <!--                        <input type ="button" data-animation="fadeInUp"-->
+                        <!--                                   data-delay="500ms" name="mode" onclick="setmod(this)" value="1"> Random mode>-->
+                        <!--                                <input type ="button" data-animation="fadeInUp"-->
+                        <!--                                   data-delay="500ms" name="mode" onclick="setmod(this)" value="2">Emotion mode>-->
+                        <button class="btn poca-btn btn-2 m-2" data-animation="fadeInUp"
+                                data-delay="500ms" name="mode" onclick="setmod(this)" value="1"> Random mode
+                        </button>
+                        <button class="btn poca-btn btn-2 m-2" data-animation="fadeInUp"
+                                data-delay="500ms" name="mode" onclick="setmod(this)" value="2">Emotion mode
+                        </button>
+
+
+                    </div>
+                </div>
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area mt-100 d-flex align-items-center flex-wrap"
+                     data-animation="fadeInUp" data-delay="900ms">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/4.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content">
+                        <label class="music-published-date" id="cat" value="4">Category:None</label>
+                        <!--                                <span class="music-published-date">Category:None</span>-->
+                        <h2><label id="songname">Sample Video</label></h2>
+                        <script src="code.js"></script>
+                        <div class="music-meta-data">
+                            <label class="music-author" id="art" value="5">Movie Name:None</label> | <label
+                                class="music-catagory" id="movname" value="6">Label</label> | <a href="#"
+                                                                                                 class="music-duration">00:02:56</a></p>
+                            <!--                                    <p>By <a href="#" class="music-author" id="art">Artist Name</a> | <a href="#"-->
+                            <!--                                                                                                class="music-catagory">Movie-->
+                            <!--                                        Name</a> | <a href="#" class="music-duration">00:02:56</a></p>-->
+                        </div>
+                        <!-- Music Player -->
+
+                        <div class="poca-music-player">
+                            <!--                                    <audio preload="auto" controls id="main_slider">-->
+                            <audio controls id="main_slider">
+                                <source src="audio/dummy-audio.mp3" id="sel" type="audio/mpeg">
+                            </audio>
+                            <script>
+                                document.getElementById("main_slider").onended = function () {
+                                    if (mod == 1) {
+                                        rand_play();
+                                    } else if (mod == 2) {
+                                        getTime();
+                                    }
+                                };
+
+                            </script>
+
+                        </div>
+                        <!-- Likes, Share & Download -->
+                        <!--                                <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                    <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                    <div>-->
+                        <!--                                        <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i>-->
+                        <!--                                            Share(04)</a>-->
+                        <!--                                        <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                    </div>-->
+                        <!--                                </div>-->
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ***** Latest Episodes Area Start ***** -->
+<section class="poca-latest-epiosodes section-padding-80">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>MOVIES LIBRARY</h2>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Projects Menu -->
+    <div class="container">
+        <div class="poca-projects-menu mb-30 wow fadeInUp" data-wow-delay="0.3s">
+            <div class="text-center portfolio-menu">
+                <button class="btn active" data-filter="*">All</button>
+                <button class="btn" data-filter=".entre">HAPPY</button>
+                <button class="btn" data-filter=".media">SAD</button>
+                <button class="btn" data-filter=".tech">ANGRY</button>
+                <button class="btn" data-filter=".tutor">NEUTRAL</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row poca-portfolio">
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item entre wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/32.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:HAPPY</span>
+                        <h2>Spiderman : Homecoming</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Tom Holland</a> | <a href="#" class="music-catagory">Sony Pictures</a> | <a href="#" class="music-duration">00:03:30</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/happy1.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item entre tutor wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/33.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:HAPPY</span>
+                        <h2>Dumb and the Dumber</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Jim Carrey</a> | <a href="#" class="music-catagory">Warner Bros</a> | <a href="#" class="music-duration">00:03:34</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/happy2.mp3">
+                            </audio>
+                        </div>
+                        <!-- Likes, Share & Download -->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item media wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/34.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:SAD</span>
+                        <h2>The Fault In Our Stars</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">John Green</a> | <a href="#"
+                                                                                            class="music-catagory">Never
+                                Gone</a> | <a href="#" class="music-duration">00:04:00</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/sad1.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                &lt;!&ndash;<a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>&ndash;&gt;-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item media wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/35.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:SAD</span>
+                        <h2>500 Days Of Summer</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Joseph Gordon Lewitt</a> | <a href="#"
+                                                                                             class="music-catagory">Hold
+                                on</a> | <a href="#" class="music-duration">00:03:22</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/sad2.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item media wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/37.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:SAD</span>
+                        <h2>Five Feet Apart</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Cole Sprouse</a> | <a href="#" class="music-catagory">Scars
+                                and stories</a> | <a href="#" class="music-duration">00:02:49</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/sad3.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item tech tutor wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/36.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:ANGRY</span>
+                        <h2>8 Mile</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Eminem</a> | <a href="#"
+                                                                                          class="music-catagory">Marshall Mathers LP</a> | <a href="#" class="music-duration">00:03:14</a>
+                            </p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/angry2.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item tech wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/10.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:ANGRY</span>
+                        <h2>Crows Zero</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Korean</a> | <a href="#" class="music-catagory">Fight Club</a> | <a href="#" class="music-duration">00:05:03</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/angry1.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item tech wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/38.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:ANGRY</span>
+                        <h2>Changing Lanes</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Ben Affleck</a> | <a href="#"
+                                                                                           class="music-catagory">Roots</a>
+                                | <a href="#" class="music-duration">00:03:59</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/angry3.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single gallery Item -->
+            <div class="col-12 col-md-6 single_gallery_item tech wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/39calm.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:NEUTRAL</span>
+                        <h2>Toy Story</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Disney Pictures</a> | <a href="#"
+                                                                                          class="music-catagory">Heard
+                                it in a past life</a> | <a href="#" class="music-duration">00:03:52</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/neutral1.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 single_gallery_item tech wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/40calm.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:NEUTRAL</span>
+                        <h2>Charlie and the Chocolate Factory</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Johnny Depp</a> | <a href="#"
+                                                                                           class="music-catagory">Love
+                                tracks</a> | <a href="#" class="music-duration">00:03:17</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/neutral2.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-md-6 single_gallery_item tech wow fadeInUp" data-wow-delay="0.2s">
+                <!-- Welcome Music Area -->
+                <div class="poca-music-area style-2 d-flex align-items-center flex-wrap">
+                    <div class="poca-music-thumbnail">
+                        <img src="./img/bg-img/41calm.jpg" alt="">
+                    </div>
+                    <div class="poca-music-content text-center">
+                        <span class="music-published-date mb-2">CATEGORY:NEUTRAL</span>
+                        <h2>The Lion King</h2>
+                        <div class="music-meta-data">
+                            <p>By <a href="#" class="music-author">Walt Disney</a> | <a href="#"
+                                                                                          class="music-catagory">Disney</a>
+                                | <a href="#" class="music-duration">00:02:29</a></p>
+                        </div>
+                        <!-- Music Player -->
+                        <div class="poca-music-player">
+                            <audio preload="auto" controls>
+                                <source src="audio/neutral3.mp3">
+                            </audio>
+                        </div>
+                        <!--                            &lt;!&ndash; Likes, Share & Download &ndash;&gt;-->
+                        <!--                            <div class="likes-share-download d-flex align-items-center justify-content-between">-->
+                        <!--                                <a href="#"><i class="fa fa-heart" aria-hidden="true"></i> Like (29)</a>-->
+                        <!--                                <div>-->
+                        <!--                                    <a href="#" class="mr-4"><i class="fa fa-share-alt" aria-hidden="true"></i> Share(04)</a>-->
+                        <!--                                    <a href="#"><i class="fa fa-download" aria-hidden="true"></i> Download (12)</a>-->
+                        <!--                                </div>-->
+                        <!--                            </div>-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--        <div class="container">-->
+    <!--            <div class="row">-->
+    <!--                <div class="col-12 text-center">-->
+    <!--                    <a href="#" class="btn poca-btn mt-70">Load More</a>-->
+    <!--                </div>-->
+    <!--            </div>-->
+    <!--        </div>-->
+</section>
+<!-- ***** Latest Episodes Area End ***** -->
+
+<!-- ***** Featured Guests Area Start ***** -->
+<section class="featured-guests-area">
+    <div class="container">
+        <div class="row">
+            <!-- Section Heading -->
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <h2>Actors</h2>
+                    <div class="line"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-around">
+            <!-- Single Featured Guest -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="single-featured-guest mb-80">
+                    <img src="img/bg-img/29.jpg" alt="">
+                    <div class="guest-info">
+                        <h5>Tom Holland</h5>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Featured Guest -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="single-featured-guest mb-80">
+                    <img src="img/bg-img/28.jpg" alt="">
+                    <div class="guest-info">
+                        <h5>Eminem</h5>
+
+                    </div>
+                </div>
+            </div>
+
+            <!-- Single Featured Guest -->
+            <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                <div class="single-featured-guest mb-80">
+                    <img src="img/bg-img/31.jpg" alt="">
+                    <div class="guest-info">
+                        <h5>Jim Carrey</h5>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Featured Guests Area End ***** -->
+
+<!-- ***** Newsletter Area Start ***** -->
+<section class="poca-newsletter-area bg-img bg-overlay pt-50 jarallax"
+         style="background-image: url(img/bg-img/15.jpg);">
+    <div class="container">
+        <div class="row align-items-center">
+
+
+        </div>
+    </div>
+</section>
+<!-- ***** Newsletter Area End ***** -->
+
+<!-- ***** Footer Area Start ***** -->
+<footer class="footer-area section-padding-80-0">
+    <div class="container">
+        <div class="row">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-80">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">About Us</h4>
+
+                    <p>With CINE-BOT,it’s easy to find the right movie for every moment. Choose what you want to watch
+                        to, or let CINE-BOT surprise you.</p>
+
+                </div>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-80">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">Categories</h4>
+
+                    <!-- Catagories Nav -->
+                    <nav>
+                        <ul class="catagories-nav">
+                            <li><a href="#">Happy</a></li>
+                            <li><a href="#">Sad</a></li>
+                            <li><a href="#">Angry</a></li>
+                            <li><a href="#">Neutral</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+
+
+            <!-- Single Footer Widget -->
+            <div class="col-12 col-sm-6 col-lg-3">
+                <div class="single-footer-widget mb-80">
+                    <!-- Widget Title -->
+                    <h4 class="widget-title">Follow Us</h4>
+                    <!-- Social Info -->
+                    <div class="footer-social-info">
+                        <a href="#" class="facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><i
+                                class="fa fa-facebook"></i></a>
+                        <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><i
+                                class="fa fa-twitter"></i></a>
+                        <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest"><i
+                                class="fa fa-pinterest"></i></a>
+                        <a href="#" class="instagram" data-toggle="tooltip" data-placement="top" title="Instagram"><i
+                                class="fa fa-instagram"></i></a>
+                        <a href="#" class="youtube" data-toggle="tooltip" data-placement="top" title="YouTube"><i
+                                class="fa fa-youtube-play"></i></a>
+                    </div>
+                    <!-- App Download Button -->
+                    <!--                        <div class="app-download-button mt-30">-->
+                    <!--                            <a href="#"><img src="./img/core-img/app-store.png" alt=""></a>-->
+                    <!--                            <a href="#"><img src="./img/core-img/google-play.png" alt=""></a>-->
+                    <!--                        </div>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+<!-- ***** Footer Area End ***** -->
+
+<!-- ******* All JS ******* -->
+<!-- jQuery js -->
+<script src="js/jquery.min.js"></script>
+<!-- Popper js -->
+<script src="js/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap.min.js"></script>
+<!-- All js -->
+<script src="js/poca.bundle.js"></script>
+<!-- Active js -->
+<script src="js/default-assets/active.js"></script>
+
+
+
+
+</body>
+
+</html>

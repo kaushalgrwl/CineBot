@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+       *{
+    padding: 0;
+    margin: 0;
+    box-sizing: content-box;
+}
+body{
+    position: relative;
+    font-family: "ROBOTO",sans-serif;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    background: #f4f4f4 ;
+}
+.btn_log{
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 1;
+    outline: none;
+    min-width: 170px;
+    height: 46px;
+    line-height: 43px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    padding: 0 20px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #232323;
+    border-radius: 50px;
+    background-color: #ffffff;
+    -webkit-transition: all 500ms;
+    -o-transition: all 500ms;
+    transition: all 500ms;
+    border: 2px solid #f55656;
+    letter-spacing: 1px;
+    margin-top: 10px;
+}
+.btn_log.active, .btn_log:focus, .btn_log:hover {
+    box-shadow: none;
+    background-color: #f55656;
+    color: #ffffff; }
+  .btn_log.btn-2 {
+    background-color: #ffffff;
+    color: #232323;
+    border: none;
+    line-height: 46px; }
+    .btn_log.btn-2:focus, .btn_log.btn-2:hover {
+      background-color: #ffffff;
+      color: #f55656;
+      border: none;
+
+     }
+
+.overlay{
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background:transparent;
+    z-index: 100;
+}
+.overlay.open{
+    display: flex;
+    animation: show-overlay 0.5s;
+}
+@keyframes show-overlay{
+    0%
+    {
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.login{
+   padding: 100px 100px;
+    background: #ffffff;
+
+    border-radius: 10px;
+}
+.header_log{
+    position: relative;
+}
+.header_log h1{
+
+    text-align: center;
+    text-transform: uppercase;
+    color: black;
+    padding-bottom: 7px;
+    border-bottom: 2px solid white;
+}
+.header_log i{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 20px;
+    color: white;
+}
+.body_log .form input{
+    display: block;
+    padding: 0 20px;
+    margin: 25px 10px;
+    outline: none;
+    border: solid #f55656 1px;
+    border-radius: 50px;
+    margin-top: 10px;
+    color: #f55656;
+    height: 46px;
+}
+.body_log .form input:focus{
+    border-color:white;
+}
+.footer_log{
+    position: relative;
+    height: 40px;
+    width: 100%;
+
+}
+/* The Modal (background) */
+.modal {
+
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  padding-top: 60px;
+
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 40%;
+    background:transparent;
+    z-index: 100;
+    display: none;
+top: 80px;
+left: 50%;
+margin-left:-240px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 10%; /* Could be more or less, depending on screen size */
+}
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: red;
+  cursor: pointer;
+}
+
+</style>
+</head>
+<body>
+
+<h2>Modal Login Form</h2>
+
+<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+
+<div id="id01" class="modal">
+
+  <div class="login">
+            <div class="header_log">
+                 <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                <h1>Login</h1>
+
+            </div>
+            <div class="body_log">
+                <form action="#" class="form">
+                    <input type="text" name="" id="email" placeholder="Username">
+                    <input type="password" name="" id="password" placeholder="Password">
+                </form>
+            </div>
+            <div class="footer_log">
+                <button class="btn_log" onclick="signIn()">login</button>
+                <button class="btn_log" onclick="signUp()">Sign Up</button>
+                <button class="btn_log" onclick="googleSignIn()">Google Sign In</button>
+<!--                <button class="btn" onclick="signOut()">Sign out</button> <br>-->
+            </div>
+        </div>
+
+  </form>
+</div>
+
+<script>
+// Get the modal
+var modal = document.getElementById('id01');
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+
+</body>
+</html>
